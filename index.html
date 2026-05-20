@@ -423,9 +423,25 @@ section { padding: 88px 28px; }
 .about-section { background: var(--white); border-top: 1px solid var(--border); }
 .about-intro {
   font-size: 1.05rem; color: var(--text); line-height: 1.8;
-  max-width: 640px; margin-bottom: 44px;
+  max-width: 640px;
+}
+.about-top {
+  display: grid; grid-template-columns: 1fr 420px; gap: 56px;
+  align-items: start; margin-bottom: 56px;
+}
+.about-top .about-intro { margin-bottom: 0; }
+.about-soccer-photo {
+  width: 100%; border-radius: 8px; display: block;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.07);
 }
 .timeline { position: relative; }
+.tl-category {
+  font-family: var(--mono); font-size: 0.7rem; color: var(--warm);
+  letter-spacing: 0.08em; text-transform: uppercase;
+  margin-top: 40px; padding-bottom: 10px;
+  border-bottom: 1px solid var(--border-dark);
+}
+.tl-category:first-child { margin-top: 0; }
 .tl-item {
   display: grid; grid-template-columns: 120px 1fr; gap: 24px;
   padding: 16px 0;
@@ -473,6 +489,9 @@ footer {
   .nav-links { display: none; }
   .overreport-grid { grid-template-columns: 1fr; }
   .tl-item { grid-template-columns: 90px 1fr; gap: 16px; }
+  .about-top { grid-template-columns: 1fr; gap: 32px; }
+  .about-top .about-intro { order: 1; }
+  .about-top > div:has(.about-soccer-photo) { order: 2; max-width: 480px; }
 }
 @media (max-width: 600px) {
   .hero h1 { font-size: 2.1rem; }
@@ -867,14 +886,16 @@ footer {
   <div class="section-inner">
     <div class="section-label">ABOUT</div>
     <h2 class="section-heading">The Full Picture</h2>
-    <p class="about-intro">Former competitive soccer player who now channels that same drive into growing businesses through digital. I've always been drawn to environments where creative ambition meets rigorous measurement — and where the scoreboard doesn't lie.</p>
 
-    <div style="margin: 40px auto 56px; max-width: 800px;">
-      <img src="headshot_soccer.jpg" alt="Per Eik Forgaard playing for New York Cosmos"
-           style="width: 100%; border-radius: 8px; display: block;">
+    <div class="about-top">
+      <p class="about-intro">Former competitive soccer player who now channels that same drive into growing businesses through digital. I've always been drawn to environments where creative ambition meets rigorous measurement — and where the scoreboard doesn't lie.</p>
+      <div>
+        <img src="headshot_soccer.jpg" alt="Per Eik Forgaard playing for New York Cosmos" class="about-soccer-photo">
+      </div>
     </div>
 
     <div class="timeline">
+      <div class="tl-category">Work</div>
       <div class="tl-item reveal">
         <div class="tl-years">2024 – 2026</div>
         <div class="tl-content">
@@ -890,33 +911,53 @@ footer {
         </div>
       </div>
       <div class="tl-item reveal">
-        <div class="tl-years">2020 – 2021</div>
-        <div class="tl-content">
-          <div class="tl-title">Literature Studies — University of Oslo</div>
-          <div class="tl-sub">Pursued during COVID to broaden perspective and challenge myself outside of marketing</div>
-        </div>
-      </div>
-      <div class="tl-item reveal">
         <div class="tl-years">2016 – 2019</div>
         <div class="tl-content">
           <div class="tl-title">Performance Marketing Manager — Starcom / Publicis Media</div>
           <div class="tl-sub">Led paid marketing for major brands, at one of the world's largest media agency networks.</div>
         </div>
       </div>
+
+      <div class="tl-category">Studies</div>
+      <div class="tl-item reveal">
+        <div class="tl-years">2022</div>
+        <div class="tl-content">
+          <div class="tl-title">Certified Conversion Manager — Conversionista, Stockholm</div>
+          <div class="tl-sub">#1 CRO program in the Nordics.</div>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-years">2020 – 2021</div>
+        <div class="tl-content">
+          <div class="tl-title">Literature Studies — University of Oslo</div>
+          <div class="tl-sub">Pursued during COVID to broaden perspective and challenge myself outside of marketing.</div>
+        </div>
+      </div>
       <div class="tl-item reveal">
         <div class="tl-years">2014 – 2016</div>
         <div class="tl-content">
           <div class="tl-title">MBA — Long Island University Post</div>
-          <div class="tl-sub">Captain &amp; All-American, Men's Soccer</div>
+          <div class="tl-sub">Graduate business administration on full athletic scholarship.</div>
         </div>
       </div>
       <div class="tl-item reveal">
         <div class="tl-years">2011 – 2014</div>
         <div class="tl-content">
           <div class="tl-title">BS, Business Administration (Summa Cum Laude) — LIU Post</div>
-          <div class="tl-sub">Soccer scholarship from Norway. All-American selection.</div>
+          <div class="tl-sub">Undergraduate business degree, top-of-class honors.</div>
         </div>
       </div>
+
+      <div class="tl-category">Thought Leadership</div>
+      <div class="tl-item reveal">
+        <div class="tl-years">2022 – 2026</div>
+        <div class="tl-content">
+          <div class="tl-title">Board Member — Marketing Organization of Oslo (MFO)</div>
+          <div class="tl-sub">Volunteer. Knowledge-sharing community of senior marketing leaders.</div>
+        </div>
+      </div>
+
+      <div class="tl-category">Sports</div>
       <div class="tl-item reveal">
         <div class="tl-years">2016</div>
         <div class="tl-content">
@@ -925,24 +966,24 @@ footer {
         </div>
       </div>
       <div class="tl-item reveal">
+        <div class="tl-years">2014 – 2016</div>
+        <div class="tl-content">
+          <div class="tl-title">Captain &amp; All-American — LIU Post Men's Soccer</div>
+          <div class="tl-sub">NCAA collegiate soccer during MBA program.</div>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-years">2011 – 2014</div>
+        <div class="tl-content">
+          <div class="tl-title">Soccer Scholarship — LIU Post Men's Soccer</div>
+          <div class="tl-sub">Recruited from Norway. All-American selection.</div>
+        </div>
+      </div>
+      <div class="tl-item reveal">
         <div class="tl-years">Before 2011</div>
         <div class="tl-content">
           <div class="tl-title">Viking FK Youth Academy — Stavanger, Norway</div>
           <div class="tl-sub">Competitive youth soccer in the Norwegian system.</div>
-        </div>
-      </div>
-      <div class="tl-item reveal">
-        <div class="tl-years">2022 – 2026</div>
-        <div class="tl-content">
-          <div class="tl-title">Board Member — Marketing Organization of Oslo (MFO)</div>
-          <div class="tl-sub">Volunteer. Knowledge-sharing community of senior marketing leaders.</div>
-        </div>
-      </div>
-      <div class="tl-item reveal">
-        <div class="tl-years">2022</div>
-        <div class="tl-content">
-          <div class="tl-title">Certified Conversion Manager — Conversionista, Stockholm</div>
-          <div class="tl-sub">#1 CRO program in the Nordics.</div>
         </div>
       </div>
     </div>
